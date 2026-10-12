@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="MR-HIDDEN | Cybersecurity, defensive security, digital safety and technology.">
+<title>MR-HIDDEN | Cyber 17</title>
+
+<style>
+:root {
+  --bg: #080808;
+  --panel: #111111;
+  --panel2: #17130d;
+  --gold: #f5bd4f;
+  --gold2: #ffdf91;
+  --text: #f4f4f4;
+  --muted: #aaa6a0;
+  --border: rgba(245,189,79,.22);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button, .btn {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+section {
+  padding: 85px 0;
+  scroll-margin-top: 85px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(27px, 4vw, 40px);
+  margin-bottom: 12px;
+}
+
+.section-title span,
+.gold {
+  color: var(--gold);
+}
+
+.section-subtitle {
+  color: var(--muted);
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 38px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 13px;
+  border: 1px solid var(--border);
+  color: var(--gold);
+  background: rgba(245,189,79,.06);
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+/* NAVIGATION */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8,8,8,.94);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 21px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #d2d2d2;
+  font-size: 13px;
+  font-weight: bold;
+  transition: .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold);
+  border-radius: 8px;
+  padding: 7px 12px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 19px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: .25s;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #171006;
+}
+
+.btn-outline {
+  color: var(--gold);
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(245,189,79,.12);
+}
+
+/* HOME */
+.hero {
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(5,5,5,.97), rgba(5,5,5,.78), rgba(5,5,5,.48)),
+    url('https://ibb.co.com/RThKcV6z') center/cover no-repeat,
+    #130903;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 45%, rgba(245,189,79,.13), transparent 42%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  padding: 75px 0;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 8vw, 78px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  text-shadow: 0 0 35px rgba(245,189,79,.17);
+}
+
+.hero p {
+  color: #d0ccc5;
+  max-width: 610px;
+  margin-bottom: 27px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-note {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  background: linear-gradient(145deg, var(--panel), #0c0c0c);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  transition: .25s;
+  min-width: 0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245,189,79,.65);
+  box-shadow: 0 12px 35px rgba(0,0,0,.22);
+}
+
+.card-icon {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--gold);
+  background: rgba(245,189,79,.09);
+  border: 1px solid var(--border);
+  font-size: 23px;
+  margin-bottom: 17px;
+}
+
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 9px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.card-link {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* INFO */
+.info-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.4fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.profile-card {
+  text-align: center;
+  background: linear-gradient(145deg, #1b160d, #0b0b0b);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 35px 24px;
+}
+
+.avatar {
+  width: 112px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: #17120a;
+  color: var(--gold);
+  font-size: 38px;
+  font-weight: 900;
+  box-shadow: 0 0 35px rgba(245,189,79,.13);
+}
+
+.profile-card h3 {
+  font-size: 25px;
+  color: var(--gold);
+}
+
+.profile-card .role {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+.info-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.info-panel h3 {
+  font-size: 23px;
+  margin-bottom: 14px;
+}
+
+.info-panel p {
+  color: #c8c5c0;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.info-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.info-item {
+  padding: 13px 15px;
+  border-radius: 9px;
+  background: rgba(245,189,79,.045);
+  border-left: 3px solid var(--gold);
+  font-size: 14px;
+}
+
+.info-item strong {
+  color: var(--gold);
+}
+
+.motto {
+  margin-top: 22px;
+  padding: 15px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--gold2);
+  font-weight: bold;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.stat {
+  padding: 20px 10px;
+  text-align: center;
+  background: #101010;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 22px;
+  color: var(--gold);
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* TOOLS */
+.tools-search {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto 30px;
+  padding: 14px 17px;
+  color: white;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+}
+
+.tools-search:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--gold);
+}
+
+.tool-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--gold);
+  background: rgba(245,189,79,.08);
+  padding: 4px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+.tool-card .btn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* LOCAL TOOLS */
+.local-tool {
+  margin-top: 25px;
+}
+
+.form-label {
+  display: block;
+  margin: 13px 0 6px;
+  font-size: 13px;
+  color: #ded8cd;
+}
+
+.field {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #393329;
+  border-radius: 8px;
+  background: #090909;
+  color: white;
+  outline: none;
+}
+
+textarea.field {
+  resize: vertical;
+  min-height: 95px;
+}
+
+.result {
+  margin-top: 13px;
+  padding: 13px;
+  min-height: 45px;
+  overflow-wrap: anywhere;
+  border-radius: 8px;
+  background: #090909;
+  border: 1px solid var(--border);
+  color: var(--gold2);
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.small-btn {
+  background: var(--gold);
+  color: #15100a;
+  border: 0;
+  border-radius: 7px;
+  padding: 9px 13px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.small-btn.secondary {
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+/* PROJECTS */
+.project-number {
+  color: var(--gold);
+  font-size: 13px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+/* CONTACT */
+.contact-box {
+  max-width: 700px;
+  margin: auto;
+  padding: 35px;
+  text-align: center;
+  background: linear-gradient(145deg, #18140c, #0c0c0c);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin: 10px 0 22px;
+}
+
+footer {
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+footer span {
+  color: var(--gold);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2000;
+  padding: 12px 18px;
+  border: 1px solid var(--gold);
+  background: #17120a;
+  color: var(--gold2);
+  border-radius: 9px;
+  font-size: 13px;
+  transition: .25s;
+  max-width: 90%;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 850px) {
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .navbar {
+    min-height: 65px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    padding: 15px 5%;
+    background: #0b0b0b;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 5px;
+    font-size: 13px;
+    border-bottom: 1px solid #242019;
+  }
+
+  .hero {
+    min-height: 520px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .info-panel,
+  .contact-box {
+    padding: 23px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#home" class="logo">MR<span>-HIDDEN</span></a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">
+      ☰ MENU
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">HOME</a>
+      <a href="#info">INFO</a>
+      <a href="#tools">TOOLS</a>
+      <a href="#mytools">MY TOOLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <span class="tag">WELCOME TO MY DIGITAL WORLD</span>
+
+      <h1>MR-HIDDEN<br><span>CYBER 17</span></h1>
+
+      <p>
+        Exploring cybersecurity, defensive security, digital safety and
+        technology. Learn responsibly. Think critically. Help build a safer
+        digital world.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#info" class="btn btn-primary">👤 ABOUT ME</a>
+        <a href="#tools" class="btn btn-outline">🛡️ EXPLORE TOOLS</a>
+      </div>
+
+      <div class="hero-note">
+        LEARN • DEFEND • SECURE
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="container">
+    <h2 class="section-title">ABOUT <span>ME</span></h2>
+    <p class="section-subtitle">
+      Get to know the person behind MR-HIDDEN and the Cyber 17 identity.
+    </p>
+
+    <div class="info-layout">
+      <div class="profile-card">
+        <div class="avatar">MH</div>
+        <h3>MR-HIDDEN</h3>
+        <p class="role">CYBER 17 ADMIN</p>
+        <div style="margin-top:18px">
+          <span class="tag">CYBERSECURITY ENTHUSIAST</span>
+        </div>
+        <p style="color:var(--muted);font-size:13px;margin-top:8px">
+          Bangladesh
+        </p>
+      </div>
+
+      <div class="info-panel">
+        <span class="tag">ADMIN PROFILE</span>
+        <h3>Welcome to my <span class="gold">INFO</span></h3>
+
+        <p>
+          I am <strong class="gold">MR-HIDDEN</strong>, a cybersecurity
+          enthusiast interested in digital security, ethical hacking,
+          web development and modern technology.
+        </p>
+
+        <p>
+          I believe that technology should be used responsibly. My goal is
+          to improve my knowledge, promote cybersecurity awareness and
+          encourage safer digital practices.
+        </p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <strong>Display Name:</strong> MR-HIDDEN
+          </div>
+
+          <div class="info-item">
+            <strong>Team Identity:</strong> Cyber 17
+          </div>
+
+          <div class="info-item">
+            <strong>Role:</strong> Admin of Cyber 17
+          </div>
+
+          <div class="info-item">
+            <strong>Team Description:</strong>
+            Bangladesh Cyber Security Official Team
+          </div>
+
+          <div class="info-item">
+            <strong>Interests:</strong>
+            Defensive Security, Cybersecurity Awareness, Web Development
+            and Digital Safety
+          </div>
+
+          <div class="info-item">
+            <strong>Mission:</strong> Learn • Defend • Secure
+          </div>
+        </div>
+
+        <div class="motto">
+          “Beyond the Ordinary. Think Smart. Stay Secure.”
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>01</strong>
+        <span>LEARN RESPONSIBLY</span>
+      </div>
+      <div class="stat">
+        <strong>02</strong>
+        <span>DEFEND DIGITALLY</span>
+      </div>
+      <div class="stat">
+        <strong>03</strong>
+        <span>BUILD SAFELY</span>
+      </div>
+    </div>
+
+    <p style="text-align:center;color:var(--muted);font-size:12px;margin-top:20px">
+      Team and role details are provided by the site owner.
+      Use official affiliation claims only when authorized.
+    </p>
+  </div>
+</section>
+
+<!-- EXTERNAL TOOLS -->
+<section id="tools" style="background:#0c0c0c">
+  <div class="container">
+    <h2 class="section-title">CYBER <span>TOOLS</span></h2>
+    <p class="section-subtitle">
+      Useful online resources for defensive security, website checks,
+      file analysis and digital safety.
+    </p>
+
+    <input
+      class="tools-search"
+      id="toolSearch"
+      type="search"
+      placeholder="🔎 Search tools..."
+      aria-label="Search cybersecurity tools"
+    >
+
+    <div class="grid" id="toolGrid">
+
+      <article class="card tool-card" data-search="mozilla observatory website security headers">
+        <div class="card-icon">🛡️</div>
+        <span class="tool-label">WEBSITE SECURITY</span>
+        <h3>Mozilla Observatory</h3>
+        <p>Check security-related website settings and review recommendations for improving web security.</p>
+        <a class="btn btn-outline" href="https://observatory.mozilla.org/" target="_blank" rel="noopener noreferrer">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card tool-card" data-search="virustotal url file malware scan">
+        <div class="card-icon">🔍</div>
+        <span class="tool-label">THREAT CHECK</span>
+        <h3>VirusTotal</h3>
+        <p>Review reports for suspicious URLs and files using multiple security engines.</p>
+        <a class="btn btn-outline" href="https://www.virustotal.com/gui/home/url" target="_blank" rel="noopener noreferrer">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card tool-card" data-search="security headers website http">
+        <div class="card-icon">🔐</div>
+        <span class="tool-label">WEB PROTECTION</span>
+        <h3>Security Headers</h3>
+        <p>Review HTTP security headers on a website you own or have permission to test.</p>
+        <a class="btn btn-outline" href="https://securityheaders.com/" target="_blank" rel="noopener noreferrer">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card tool-card" data-search="cyberchef encode decode data">
+        <div class="card-icon">⚙️</div>
+        <span class="tool-label">DATA ANALYSIS</span>
+        <h3>CyberChef</h3>
+        <p>Explore encoding, decoding, data transformations and other useful analysis operations.</p>
+        <a class="btn btn-outline" href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card tool-card" data-search="ssl labs tls certificate https">
+        <div class="card-icon">🌐</div>
+        <span class="tool-label">TLS CHECK</span>
+        <h3>SSL Labs</h3>
+        <p>Analyze the TLS configuration of a public server with permission from its owner.</p>
+        <a class="btn btn-outline" href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener noreferrer">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card tool-card" data-search="have i been pwned email breach account">
+        <div class="card-icon">📧</div>
+        <span class="tool-label">ACCOUNT SAFETY</span>
+        <h3>Have I Been Pwned</h3>
+        <p>Check whether an email address appears in known data breaches and learn about account safety.</p>
+        <a class="btn btn-outline" href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">OPEN TOOL ↗</a>
+      </article>
+
+    </div>
+
+    <p id="noTools" class="section-subtitle hidden" style="margin-top:25px">
+      No matching tools found. Try another search.
+    </p>
+
+    <p style="color:var(--muted);font-size:12px;text-align:center;margin-top:24px">
+      External tools are provided by their respective owners. Use them only
+      for lawful, authorized security checks.
+    </p>
+  </div>
+</section>
+
+<!-- LOCAL TOOLS -->
+<section id="mytools">
+  <div class="container">
+    <h2 class="section-title">MY <span>TOOLS</span></h2>
+    <p class="section-subtitle">
+      Simple tools that run in your browser. Your input is not sent to this
+      website by the functions below.
+    </p>
+
+    <div class="grid">
+
+      <!-- PASSWORD STRENGTH -->
+      <div class="card local-tool">
+        <div class="card-icon">🔑</div>
+        <h3>Password Strength</h3>
+        <p>Get a basic estimate of password strength. This is not a guarantee of security.</p>
+
+        <label class="form-label" for="passwordInput">Enter a test password</label>
+        <input class="field" id="passwordInput" type="password" autocomplete="new-password" placeholder="Enter test password">
+
+        <div class="tool-actions">
+          <button class="small-btn" id="checkPassword">CHECK STRENGTH</button>
+          <button class="small-btn secondary" id="togglePassword">SHOW / HIDE</button>
+        </div>
+
+        <div class="result" id="passwordResult" aria-live="polite">Your result will appear here.</div>
+      </div>
+
+      <!-- SHA 256 -->
+      <div class="card local-tool">
+        <div class="card-icon">#️⃣</div>
+        <h3>SHA-256 Hash</h3>
+        <p>Generate a SHA-256 digest from text in your browser.</p>
+
+        <label class="form-label" for="hashInput">Text to hash</label>
+        <textarea class="field" id="hashInput" placeholder="Type some text..."></textarea>
+
+        <div class="tool-actions">
+          <button class="small-btn" id="makeHash">GENERATE HASH</button>
+          <button class="small-btn secondary" id="copyHash">COPY RESULT</button>
+        </div>
+
+        <div class="result" id="hashResult" aria-live="polite">Hash output will appear here.</div>
+      </div>
+
+      <!-- BASE64 -->
+      <div class="card local-tool">
+        <div class="card-icon">🔄</div>
+        <h3>Base64 Converter</h3>
+        <p>Encode text into Base64 or decode Base64 back into text. Base64 is not encryption.</p>
+
+        <label class="form-label" for="baseInput">Input text</label>
+        <textarea class="field" id="baseInput" placeholder="Enter text or Base64 data..."></textarea>
+
+        <div class="tool-actions">
+        <button class="small-btn" id="encodeBase">ENCODE</button>
+          <button class="small-btn secondary" id="decodeBase">DECODE</button>
+          <button class="small-btn secondary" id="copyBase">COPY</button>
+        </div>
+
+        <div class="result" id="baseResult" aria-live="polite">
+          Converted result will appear here.
+        </div>
+      </div>
+
+    </div>
+
+    <p style="color:var(--muted);font-size:12px;margin-top:22px;text-align:center">
+      Do not enter real passwords or confidential information into tools
+      unless you understand how the tool handles that data.
+    </p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:#0c0c0c">
+  <div class="container">
+    <h2 class="section-title">MY <span>PROJECTS</span></h2>
+    <p class="section-subtitle">
+      A growing collection of learning projects focused on responsible
+      cybersecurity and technology.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="project-number">PROJECT / 01</div>
+        <div class="card-icon">🖥️</div>
+        <h3>Cybersecurity Portfolio</h3>
+        <p>A personal website showcasing learning progress, useful resources and security awareness.</p>
+        <a href="#info" class="card-link">EXPLORE PROFILE →</a>
+      </div>
+
+      <div class="card">
+        <div class="project-number">PROJECT / 02</div>
+        <div class="card-icon">🔐</div>
+        <h3>Digital Safety</h3>
+        <p>Educational resources about stronger passwords, account protection and safe browsing.</p>
+        <a href="#tools" class="card-link">VIEW RESOURCES →</a>
+      </div>
+
+      <div class="card">
+        <div class="project-number">PROJECT / 03</div>
+        <div class="card-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Building beginner-friendly web projects with HTML, CSS and JavaScript.</p>
+        <a href="#mytools" class="card-link">TRY MY TOOLS →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">GET IN <span>TOUCH</span></h2>
+    <p class="section-subtitle">
+      For collaboration, learning and responsible cybersecurity discussions.
+    </p>
+
+    <div class="contact-box">
+      <div class="card-icon" style="margin:0 auto 18px">✉️</div>
+      <h3>Connect with MR-HIDDEN</h3>
+      <p>
+        Want to discuss web development, digital safety or cybersecurity
+        learning? Add your official contact or social media link below.
+      </p>
+
+      <a class="btn btn-primary" href="#info">VIEW MY INFO</a>
+      <a class="btn btn-outline" href="#tools">EXPLORE TOOLS</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> <span>MR-HIDDEN | CYBER 17</span></p>
+    <p>Learn Responsibly • Defend Digitally • Stay Secure</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+  });
+});
+
+// Toast notification
+let toastTimer;
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
+}
+
+// Current year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Search external tools
+const toolSearch = document.getElementById("toolSearch");
+const toolCards = [...document.querySelectorAll(".tool-card")];
+const noTools = document.getElementById("noTools");
+
+toolSearch.addEventListener("input", () => {
+  const query = toolSearch.value.trim().toLowerCase();
+  let visibleCount = 0;
+
+  toolCards.forEach(card => {
+    const searchableText =
+      (card.innerText + " " + (card.dataset.search || "")).toLowerCase();
+
+    const match = searchableText.includes(query);
+    card.classList.toggle("hidden", !match);
+
+    if (match) visibleCount++;
+  });
+
+  noTools.classList.toggle("hidden", visibleCount !== 0);
+});
+
+// Password strength estimate
+const passwordInput = document.getElementById("passwordInput");
+const passwordResult = document.getElementById("passwordResult");
+
+document.getElementById("checkPassword").addEventListener("click", () => {
+  const password = passwordInput.value;
+
+  if (!password) {
+    passwordResult.textContent = "Please enter a test password.";
+    return;
+  }
+
+  let score = 0;
+
+  if (password.length >= 12) score++;
+  if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
+  if (/[0-9]/.test(password)) score++;
+  if (/[^A-Za-z0-9]/.test(password)) score++;
+
+  let label;
+
+  if (password.length < 8 || score <= 1) {
+    label = "Basic estimate: Weak — use a longer, unique password.";
+  } else if (score === 2) {
+    label = "Basic estimate: Fair — consider a longer passphrase.";
+  } else if (score === 3) {
+    label = "Basic estimate: Good — keep it unique to each account.";
+  } else {
+    label = "Basic estimate: Stronger pattern detected — uniqueness still matters.";
+  }
+
+  passwordResult.textContent =
+    label + "\nLength: " + password.length + " characters.";
+});
+
+// Show or hide password
+document.getElementById("togglePassword").addEventListener("click", () => {
+  passwordInput.type =
+    passwordInput.type === "password" ? "text" : "password";
+});
+
+// SHA-256 tool
+const hashInput = document.getElementById("hashInput");
+const hashResult = document.getElementById("hashResult");
+
+document.getElementById("makeHash").addEventListener("click", async () => {
+  if (!window.crypto || !crypto.subtle) {
+    hashResult.textContent =
+      "SHA-256 is unavailable here. Try HTTPS or localhost.";
+    return;
+  }
+
+  try {
+    const data = new TextEncoder().encode(hashInput.value);
+    const digest = await crypto.subtle.digest("SHA-256", data);
+
+    hashResult.textContent = Array.from(new Uint8Array(digest))
+      .map(byte => byte.toString(16).padStart(2, "0"))
+      .join("");
+  } catch (error) {
+    hashResult.textContent = "Could not generate the hash.";
+  }
+});
+
+document.getElementById("copyHash").addEventListener("click", async () => {
+  await copyText(hashResult.textContent);
+});
+
+// Base64 converter with UTF-8 support
+const baseInput = document.getElementById("baseInput");
+const baseResult = document.getElementById("baseResult");
+
+function encodeBase64(text) {
+  const bytes = new TextEncoder().encode(text);
+  let binary = "";
+
+  bytes.forEach(byte => {
+    binary += String.fromCharCode(byte);
+  });
+
+  return btoa(binary);
+}
+
+function decodeBase64(text) {
+  const binary = atob(text.trim());
+  const bytes = Uint8Array.from(
+    binary,
+    char => char.charCodeAt(0)
+  );
+
+  return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+}
+
+document.getElementById("encodeBase").addEventListener("click", () => {
+  try {
+    baseResult.textContent = encodeBase64(baseInput.value);
+  } catch (error) {
+    baseResult.textContent = "Could not encode this input.";
+  }
+});
+
+document.getElementById("decodeBase").addEventListener("click", () => {
+  try {
+    baseResult.textContent = decodeBase64(baseInput.value);
+  } catch (error) {
+    baseResult.textContent =
+      "Invalid Base64 input or decoded data is not valid UTF-8 text.";
+  }
+});
+
+document.getElementById("copyBase").addEventListener("click", async () => {
+  await copyText(baseResult.textContent);
+});
+
+// Copy result
+async function copyText(text) {
+  if (
+    !text ||
+    text === "Hash output will appear here." ||
+    text === "Converted result will appear here."
+  ) {
+    showToast("There is no result to copy yet.");
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast("Copied to clipboard!");
+  } catch (error) {
+    showToast(
+      "Clipboard unavailable. Select and copy the result manually."
+    );
+  }
+}
+</script>
+
+</body>
+</html>
